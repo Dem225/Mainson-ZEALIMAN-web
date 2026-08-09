@@ -1,0 +1,44 @@
+# Environnement virtuel
+local/
+venv/
+env/
+*.venv
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Django
+*.log
+db.sqlite3
+db.sqlite3-3
+media/
+
+# Fichiers de config sensibles
+.env
+*.env
+secrets.py
+
+# Migrations (optionnel — certains les versionnent, d'autres non)
+# */migrations/*.py
+# !*/migrations/__init__.py
+
+# Fichiers statiques collectés (si tu utilises collectstatic)
+staticfiles/
+
+# IDE / éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Coverage / tests
+.coverage
+htmlcov/
+.pytest_cache/

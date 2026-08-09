@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRDUIRE</title>
+</head>
+<body>
+    <h1>HOLLE BIENVENUE SUR MA PAGE PRUDUIT</h1>
+    <table>
+        <thead>
+            <th>NOM</th>
+            <th>slug</th>     
+            <th>prix</th>
+            <th>image</th>
+            <th>stock</th>
+            <th>disponible</th>
+
+        </thead>
+        <tbody>
+            {% for prd in produit  %}
+            <tr>
+                <td>{{prd.nom}} </td>
+                <td>{{prd.slug}} </td>
+                <td>{{prd.prix}} </td>
+            <td><img src="{{ prd.image.url }}" alt="{{ prd.nom }}" width="80"></td>    
+            <td>{{prd.stock}} </td>
+                <td>{{prd.disponible}} </td>
+            </tr>
+
+
+            {%empty%}
+             <tr>
+                <td>  pas de produit pour l'instant  </td>
+            </tr>
+
+
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
