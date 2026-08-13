@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRDUIRE</title>
+</head>
+<body>
+    <h1>HOLLE BIENVENUE SUR MA PAGE PRUDUIT</h1>
+    <table>
+        <thead>
+            <th>produit</th>
+            <th>quantite</th>     
+            <th>prix</th>
+            <th>prix total</th>
+
+        </thead>
+        <tbody>
+            {% for item in panier  %}
+            <tr>
+                <td>{{item.produit}} </td>
+                <td>{{item.quantite}} </td>
+                <td>{{item.prix}} </td>
+                <td>{{item.total_prix}} </td>
+            </tr>
+            {%empty%}
+             <tr>
+                <td>  pas de produit dans le panier  </td>
+            </tr>
+
+
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -16,6 +16,7 @@
             <th>image</th>
             <th>stock</th>
             <th>disponible</th>
+            <th> detail</th>
 
         </thead>
         <tbody>
@@ -26,8 +27,12 @@
                 <td>{{prd.prix}} </td>
             <td><img src="{{ prd.image.url }}" alt="{{ prd.nom }}" width="80"></td>    
             <td>{{prd.stock}} </td>
-                <td>{{prd.disponible}} </td>
+            <td>{{prd.disponible}} </td>
+            <td>
+                <a href="{% url "detail_produit" slug=prd.slug %}"> datail</a>
+            </td>
             </tr>
+
 
 
             {%empty%}

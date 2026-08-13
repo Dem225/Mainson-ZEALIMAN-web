@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ produit.nom }}</title>
+</head>
+<body>
+    <h1>{{ produit.nom }}</h1>
+    <img src="{{ produit.image.url }}" alt="{{ produit.nom }}" width="300">
+    <p>{{ produit.description }}</p>
+    <p>Prix : {{ produit.prix }} FCFA</p>
+    <p>Stock : {{ produit.stock }}</p>
+    <p>Disponible : {{ produit.disponible }}</p>
+    <button type="submit"> 
+            <a href="{% url "ajouter_au_panier" slug=produit.slug %}"> + AJOUTER</a>
+    </button>
+</body>
+</html>
