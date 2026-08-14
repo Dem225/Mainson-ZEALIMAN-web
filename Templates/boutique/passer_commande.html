@@ -1,0 +1,38 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Commande{% endblock %}
+
+{% block content %}
+    <h1>PASSER UNE COMMANDE EN TOUTE SÉCURITÉ</h1>
+
+    <table>
+        <thead>
+            <th>produit</th>
+            <th>quantité</th>
+            <th>total</th>
+        </thead>
+        <tbody>
+            {% for item in panier %}
+            <tr>
+                <td>{{ item.produit.nom }}</td>
+                <td>{{ item.quantite }}</td>
+                <td>{{ item.total_prix }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">pas de produit dans le panier</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3>Total à payer : {{ panier.get_total }} FCFA</h3>
+
+    <form method="post">
+        {% csrf_token %}
+        <label>Adresse de livraison :</label>
+        <textarea name="adresse_livraison" required></textarea>
+        <button type="submit">VALIDER LA COMMANDE</button>
+    </form>
+{% endblock %}

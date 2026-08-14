@@ -12,12 +12,12 @@ class Panier:
     def ajouter(self, produit, quantite=1):
         produit_id = str(produit.id)
         if produit_id in self.panier:
-            self.panier[produit_id]['quantite'] +=quantite
+            self.panier[produit_id]['quantite'] += quantite
         else:
             self.panier[produit_id] = {
-                    'quantite': quantite,
-                    'prix': str(produit.prix)
-                }
+                'quantite': quantite,
+                'prix': str(produit.prix)
+            }
         self.session.modified = True
 
     def __iter__(self):
@@ -27,12 +27,26 @@ class Panier:
                 'produit': produit,
                 'quantite': infos['quantite'],
                 'prix': infos['prix'],
-                'total_prix': float(infos['prix'] ) *  infos['quantite']
+                'total_prix': float(infos['prix']) * infos['quantite']
             }
-        pass
+
     def __len__(self):
-      
-     return sum(infos['quantite'] for infos in self.panier.values())
+        return sum(infos['quantite'] for infos in self.panier.values())
 
     def get_total(self):
-        return  sum( float(infos['prix']) * infos['quantite'] for infos in self.panier.values())
+        return sum(float(infos['prix']) * infos['quantite'] for infos in self.panier.values())
+
+    def supprimer(self, produit):
+        produit_id = str(produit.id)
+        if produit_id in self.panier:
+            del self.panier[produit_id]
+            self.session.modified = True
+
+    def modifier_quantite(self, produit, quantite):
+        produit_id = str(produit.id)
+        if produit_id in self.panier:
+            self.panier[produit_id]['quantite'] = quantite
+            self.session.modified = True
+    def vider(self):
+        del self.session['panier']
+        self.session.modified = True

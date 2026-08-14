@@ -1,12 +1,8 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRDUIRE</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}Panier{% endblock %}
+
+{% block content %}
     <h1>HOLLE BIENVENUE SUR MA PAGE PRUDUIT</h1>
     <table>
         <thead>
@@ -14,6 +10,8 @@
             <th>quantite</th>     
             <th>prix</th>
             <th>prix total</th>
+            <th> Modifiers </th>
+            <th> supprimer </th>
 
         </thead>
         <tbody>
@@ -23,6 +21,19 @@
                 <td>{{item.quantite}} </td>
                 <td>{{item.prix}} </td>
                 <td>{{item.total_prix}} </td>
+                <td>
+                    <form method="post" action="{% url 'supprimer_du_panier' slug=item.produit.slug %}">
+                        {% csrf_token %}
+                        <button type="submit">Supprimer</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="post" action="{% url 'modifier_quantite_panier' slug=item.produit.slug %}">
+                        {% csrf_token %}
+                        <input type="number" name="quantite" value="{{item.quantite }}" min="1">
+                        <button type="submit">Modifier</button>
+                    </form>
+                </td>
             </tr>
             {%empty%}
              <tr>
@@ -33,5 +44,5 @@
             {% endfor %}
         </tbody>
     </table>
-</body>
-</html>
+
+{% endblock %}

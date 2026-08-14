@@ -1,12 +1,8 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRDUIRE</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
     <h1>HOLLE BIENVENUE SUR MA PAGE PRUDUIT</h1>
     <table>
         <thead>
@@ -16,33 +12,24 @@
             <th>image</th>
             <th>stock</th>
             <th>disponible</th>
-            <th> detail</th>
-
+            <th>detail</th>
         </thead>
         <tbody>
-            {% for prd in produit  %}
+            {% for prd in produit %}
             <tr>
-                <td>{{prd.nom}} </td>
-                <td>{{prd.slug}} </td>
-                <td>{{prd.prix}} </td>
-            <td><img src="{{ prd.image.url }}" alt="{{ prd.nom }}" width="80"></td>    
-            <td>{{prd.stock}} </td>
-            <td>{{prd.disponible}} </td>
-            <td>
-                <a href="{% url "detail_produit" slug=prd.slug %}"> datail</a>
-            </td>
+                <td>{{ prd.nom }}</td>
+                <td>{{ prd.slug }}</td>
+                <td>{{ prd.prix }}</td>
+                <td><img src="{{ prd.image.url }}" alt="{{ prd.nom }}" width="80"></td>
+                <td>{{ prd.stock }}</td>
+                <td>{{ prd.disponible }}</td>
+                <td><a href="{% url 'detail_produit' slug=prd.slug %}">détail</a></td>
             </tr>
-
-
-
-            {%empty%}
-             <tr>
-                <td>  pas de produit pour l'instant  </td>
+            {% empty %}
+            <tr>
+                <td colspan="7">pas de produit pour l'instant</td>
             </tr>
-
-
             {% endfor %}
         </tbody>
     </table>
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,7 @@
+rm -rf local
+python3 -m venv local
+source local/bin/activate
+pip install --upgrade pippip 
+install django
+pip install Pillow
+python manage.py runserver

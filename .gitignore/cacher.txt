@@ -42,3 +42,13 @@ Thumbs.db
 .coverage
 htmlcov/
 .pytest_cache/
+
+
+# Python / Django
+*.pyc
+__pycache__/
+local/
+db.sqlite3
+media/
+.env
+.DS_Store

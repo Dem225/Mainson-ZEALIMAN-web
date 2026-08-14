@@ -1,0 +1,9 @@
+{% extends 'base.html'%}
+
+{% block title %}Commande confirmée{% endblock %}
+
+{% block content %}
+    <h3>Merci ! Votre commande #{{ commande.id }} a été enregistrée</h3>
+    <p>Total : {{ commande.total }} FCFA</p>
+    <p>Statut : {{ commande.get_statut_display }}</p>
+{% endblock %}

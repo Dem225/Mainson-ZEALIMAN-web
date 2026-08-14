@@ -8,5 +8,7 @@ class Utilisateur(AbstractUser):
     adresse = models.TextField(blank=True)
     ville = models.CharField(max_length=100, blank=True)
     def __str__(self):
-        return f";{self.adresse}-{self.telephone}-{self.ville}"
-       
+        return f"{self.adresse}-{self.telephone}-{self.ville}"
+
+
+    
