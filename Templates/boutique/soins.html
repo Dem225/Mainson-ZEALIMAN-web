@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Soins du sommeil | ZEALIMAN{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'boutique/css/sleep_guide.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top:40px; padding-bottom:80px;">
+    <nav class="breadcrumb">Accueil / <span>Soins du sommeil</span></nav>
+
+    <h1 style="margin-bottom:30px; font-weight:200; font-size:2.5rem;">Guide des soins du sommeil</h1>
+    <p class="description" style="max-width:700px;">
+        Découvrez nos conseils pour entretenir votre literie et préserver la qualité de votre sommeil au fil des années.
+    </p>
+
+    <section class="features-grid">
+        <div class="feature-card">
+            <span class="material-symbols-outlined icon-box">soap</span>
+            <h3>Lavage</h3>
+            <p>Lavez votre couette à 40°C maximum, avec un cycle délicat, pour préserver le gonflant du duvet.</p>
+        </div>
+        <div class="feature-card">
+            <span class="material-symbols-outlined icon-box">wb_sunny</span>
+            <h3>Séchage</h3>
+            <p>Privilégiez un séchage en tambour à basse température avec des balles de séchage.</p>
+        </div>
+        <div class="feature-card">
+            <span class="material-symbols-outlined icon-box">inventory_2</span>
+            <h3>Stockage</h3>
+            <p>Rangez vos textiles dans une housse respirante, à l'abri de l'humidité.</p>
+        </div>
+    </section>
+</div>
+{% endblock %}

@@ -1,9 +1,15 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 
-{% block title %}Commande confirmée{% endblock %}
+{% block title %}Commande confirmée | ZEALIMAN{% endblock %}
 
 {% block content %}
-    <h3>Merci ! Votre commande #{{ commande.id }} a été enregistrée</h3>
+<section class="newsletter">
+    <span class="moon-icon">✓</span>
+    <h2>Merci ! Votre commande #{{ commande.id }} a été enregistrée</h2>
     <p>Total : {{ commande.total }} FCFA</p>
     <p>Statut : {{ commande.get_statut_display }}</p>
+    <div style="margin-top:30px;">
+        <a href="{% url 'home' %}" class="btn-dark" style="text-decoration:none; display:inline-block;">Retour à l'accueil</a>
+    </div>
+</section>
 {% endblock %}

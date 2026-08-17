@@ -5,7 +5,7 @@ from boutique.panier import Panier
 from django.contrib.auth.decorators import login_required
 from boutique.panier import Panier
 from commandes.models import Commande, LigneCommande
-
+from boutique.models import Categorie
 
 # Create your views here.
 
@@ -105,3 +105,24 @@ def historique_commandes(request):
     commandes = Commande.objects.filter(client=request.user).order_by('-date_commande')
     context = {'commandes': commandes}
     return render(request, 'boutique/historique.html', context)
+
+
+
+
+
+def confort_view(request):
+    produit = Produit.objects.filter(disponible=True)
+    categories = Categorie.objects.all()
+    return render(request, 'boutique/confort.html', {'produit': produit, 'categories': categories})
+
+def soins_view(request):
+    return render(request, 'boutique/soins.html')
+
+def histoire_view(request):
+    return render(request, 'boutique/histoire.html')
+
+
+
+
+
+

@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}ZEALIMAN | Collections{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'boutique/css/our_duvets.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="content" style="padding-top:40px;">
+
+    <header class="page-header">
+        <p class="breadcrumb">Accueil / Collections</p>
+        <h1>Collections</h1>
+        
+    </header>
+
+    <div class="filter-bar">
+        <button class="filter-btn active" data-filter="tout">Tout</button>
+        {% for cat in categories %}
+        <button class="filter-btn" data-filter="{{ cat.slug }}">{{ cat.nom }}</button>
+        {% endfor %}
+    </div>
+
+    <section class="product-grid">
+        {% for prd in produit %}
+        <div class="product-card" data-category="{{ prd.categorie.slug }}">
+            <div class="image-container">
+                <img src="{{ prd.image.url }}" alt="{{ prd.nom }}">
+            </div>
+            <div class="product-info">
+                <p class="category">{{ prd.categorie.nom }}</p>
+                <h3>{{ prd.nom }}</h3>
+                <div class="price-row">
+                    <span class="price">{{ prd.prix }} FCFA</span>
+                    <a href="{% url 'detail_produit' slug=prd.slug %}" class="arrow-btn">
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+                <a href="{% url 'ajouter_au_panier' slug=prd.slug %}" class="btn-add-mobile">
+                    + Ajouter au panier
+                </a>
+            </div>
+        </div>
+        {% empty %}
+        <p>Pas de produit pour l'instant.</p>
+        {% endfor %}
+    </section>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.product-card');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const filter = btn.dataset.filter;
+            cards.forEach(card => {
+                card.style.display = (filter === 'tout' || card.dataset.category === filter) ? 'block' : 'none';
+            });
+        });
+    });
+</script>
+{% endblock %}

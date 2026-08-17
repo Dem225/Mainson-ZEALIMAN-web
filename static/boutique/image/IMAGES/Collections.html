@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZEALIMAN | Vos Confort</title>
+    <link rel="stylesheet" href="./Collections.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,200..700,0..1,-50..200" />
+    <link rel="stylesheet" href="/Mainson-ZEALIMAN/cart.css">
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">ZEALIMAN</div>
+        <nav>
+            <a href="../index.html"> 
+                <span class="nav-text">ACCUEIL</span>
+            </a>
+            <a href="./OUR DUVETS.html" class="active">
+              
+                <span class="nav-text">CONFORT</span>
+            </a>
+            <a href="./SLEEP GUIDE.html">
+               
+                <span class="nav-text">SOINS</span>
+            </a>
+            <a href="./ABOUT.html">
+                
+                <span class="nav-text">HISTOIRE</span>
+            </a>
+        </nav>
+        <div class="header-icons">
+            <span class="material-symbols-outlined">search</span>
+            <div class="cart-wrapper">
+                <span class="material-symbols-outlined">shopping_bag</span>
+                <span class="cart-count" id="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- NAV MOBILE BAS -->
+    <nav class="mobile-bottom-nav">
+        <a href="../index.html" class="nav-item">
+          
+            <span class="nav-text">Accueil</span>
+        </a>
+        <a href="./OUR DUVETS.html" class="nav-item active">
+            
+            <span class="nav-text">Confort</span>
+        </a>
+        <a href="./SLEEP GUIDE.html" class="nav-item">
+           
+            <span class="nav-text">Soins</span>
+        </a>
+        <a href="./ABOUT.html" class="nav-item">
+           
+            <span class="nav-text">Histoire</span>
+        </a>
+    </nav>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Redécouvrez le plaisir de s'endormir</h1>
+                <p>Des matières conçues pour offrir une légèreté aérienne et un confort thermique toute la nuit.</p>
+                <a href="#products" class="btn-dark">Explorer la collection</a>
+            </div>
+        </section>
+
+        <!-- RÉASSURANCE -->
+        <section class="container reassurance-grid">
+            <div class="card-large bg-light-blue">
+                <span class="material-symbols-outlined icon-top">thermostat</span>
+                <h2>Régulation Thermique</h2>
+                <p>Nos matériaux intelligents s'adaptent à la température de votre corps pour un confort optimal en toute saison.</p>
+                <div class="card-img-placeholder">
+                    <img src="../Cousiens9.jpeg" alt="Texture">
+                </div>
+            </div>
+            <div class="card-small">
+                <span class="material-symbols-outlined icon-top">eco</span>
+                <h2>Hypoallergénique</h2>
+                <p>Traitement naturel contre les acariens pour un sommeil sain et paisible.</p>
+                <img src="../Cousiens10.jpeg" alt="Coton" class="floating-img">
+            </div>
+            <div class="card-full-width dark-bg">
+                <div class="content">
+                    <span class="material-symbols-outlined">wash</span>
+                    <h3>Entretien Facile</h3>
+                    <p>Lavable en machine tout en conservant son gonflant et sa douceur lavage après lavage.</p>
+                </div>
+                <div class="badge-outline">DURABLE & SOFT</div>
+            </div>
+        </section>
+
+        <!-- PRODUITS -->
+        <section class="container products-section" id="products">
+            <div class="section-header">
+                <div>
+                    <span class="sub-title">LA SÉLECTION EXCLUSIVE</span>
+                    <h2>Trouvez votre confort idéal</h2>
+                </div>
+            </div>
+
+            <div class="product-grid">
+                <div class="product-item">
+                    <div class="img-wrapper"><span class="tag">NOUVEAU</span><img src="../6.png" alt="La Nuage Royale"></div>
+                    <h4>La Nuage Royale</h4>
+                    <p class="desc">Confort ultime, moelleux, duvet d'oie d'origine.</p>
+                    <span class="price">45 000 FCFA</span>
+                    <button class="btn-add" onclick="addToCart('La Nuage Royale', 45000, this)">Ajouter au panier</button>
+                </div>
+                <div class="product-item">
+                    <div class="img-wrapper"><img src="../2.png" alt="La Brise d'Été"></div>
+                    <h4>La Brise d'Été</h4>
+                    <p class="desc">Légèreté maximale, régulation thermique active.</p>
+                    <span class="price">35 000 FCFA</span>
+                    <button class="btn-add" onclick="addToCart('La Brise d\'Été', 35000, this)">Ajouter au panier</button>
+                </div>
+                <div class="product-item">
+                    <div class="img-wrapper"><img src="../3.png" alt="L'Essentielle 4 Saisons"></div>
+                    <h4>L'Essentielle 4 Saisons</h4>
+                    <p class="desc">Polyvalente et équilibrée, microfibre premium.</p>
+                    <span class="price">25 000 FCFA</span>
+                    <button class="btn-add" onclick="addToCart('L\'Essentielle 4 Saisons', 25000, this)">Ajouter au panier</button>
+                </div>
+            </div>
+
+            <div class="product-grid">
+                <div class="product-item">
+                    <div class="img-wrapper"><span class="tag">NOUVEAU</span><img src="../7.png" alt="Le Cocon Hivernal"></div>
+                    <h4>Le Cocon Hivernal</h4>
+                    <p class="desc">Chaleur enveloppante pour les nuits les plus froides.</p>
+                    <span class="price">45 000 FCFA</span>
+                    <button class="btn-add" onclick="addToCart('Le Cocon Hivernal', 45000, this)">Ajouter au panier</button>
+                </div>
+                <div class="product-item">
+                    <div class="img-wrapper"><img src="../8.png" alt="La Plume Légère"></div>
+                    <h4>La Plume Légère</h4>
+                    <p class="desc">Douceur extrême, idéale pour un sommeil aérien.</p>
+                    <span class="price">35 000 FCFA</span>
+                    <button class="btn-add" onclick="addToCart('La Plume Légère', 35000, this)">Ajouter au panier</button>
+                </div>
+                <div class="product-item">
+                    <div class="img-wrapper"><img src="../12.png" alt="Le Prestige Satiné"></div>
+                    <h4>Le Prestige Satiné</h4>
+                    <p class="desc">Finition satinée luxueuse, confort toutes saisons.</p>
+                    <span class="price">25 000 FCFA</span>
+                    <button class="btn-add" onclick="addToCart('Le Prestige Satiné', 25000, this)">Ajouter au panier</button>
+                </div>
+            </div>
+
+            <div class="product-grid">
+                <div class="product-item">
+                    <div class="img-wrapper"><span class="tag">NOUVEAU</span><img src="../13.png" alt="Le Duvet Blanc"></div>
+                    <h4>Le Duvet Blanc</h4>
+                    <p class="desc">Pureté absolue, matière naturelle certifiée.</p>
+                    <span class="price">45 000 FCFA</span>
+                    <button class="btn-add" onclick="addToCart('Le Duvet Blanc', 45000, this)">Ajouter au panier</button>
+                </div>
+                <div class="product-item">
+                    <div class="img-wrapper"><img src="../14.png" alt="La Sérénité Grise"></div>
+                    <h4>La Sérénité Grise</h4>
+                    <p class="desc">Élégance sobre, chaleur douce et enveloppante.</p>
+                    <span class="price">35 000 FCFA</span>
+                    <button class="btn-add" onclick="addToCart('La Sérénité Grise', 35000, this)">Ajouter au panier</button>
+                </div>
+                <div class="product-item">
+                    <div class="img-wrapper"><img src="../15.png" alt="L'Horizon Doux"></div>
+                    <h4>L'Horizon Doux</h4>
+                    <p class="desc">Microfibre premium, équilibre parfait toutes saisons.</p>
+                    <span class="price">25 000 FCFA</span>
+                    <button class="btn-add" onclick="addToCart('L\'Horizon Doux', 25000, this)">Ajouter au panier</button>
+                </div>
+            </div>
+
+            <div class="product-grid">
+                <div class="product-item">
+                    <div class="img-wrapper"><span class="tag">NOUVEAU</span><img src="../17.png" alt="Le Velours Nocturne"></div>
+                    <h4>Le Velours Nocturne</h4>
+                    <p class="desc">Texture veloutée, douceur incomparable.</p>
+                    <span class="price">45 000 FCFA</span>
+                    <button class="btn-add" onclick="addToCart('Le Velours Nocturne', 45000, this)">Ajouter au panier</button>
+                </div>
+                <div class="product-item">
+                    <div class="img-wrapper"><img src="../18.png" alt="La Brise Marine"></div>
+                    <h4>La Brise Marine</h4>
+                    <p class="desc">Fraîcheur naturelle pour les nuits chaudes.</p>
+                    <span class="price">35 000 FCFA</span>
+                    <button class="btn-add" onclick="addToCart('La Brise Marine', 35000, this)">Ajouter au panier</button>
+                </div>
+                <div class="product-item">
+                    <div class="img-wrapper"><img src="../19.png" alt="Le Nuage d'Argent"></div>
+                    <h4>Le Nuage d'Argent</h4>
+                    <p class="desc">Légèreté et chaleur, microfibre haute gamme.</p>
+                    <span class="price">25 000 FCFA</span>
+                    <button class="btn-add" onclick="addToCart('Le Nuage d\'Argent', 25000, this)">Ajouter au panier</button>
+                </div>
+            </div>
+
+            <div class="product-grid">
+                <div class="product-item">
+                    <div class="img-wrapper"><span class="tag">NOUVEAU</span><img src="../21.png" alt="La Royale Ivoire"></div>
+                    <h4>La Royale Ivoire</h4>
+                    <p class="desc">Finition ivoire luxueuse, duvet d'exception.</p>
+                    <span class="price">45 000 FCFA</span>
+                    <button class="btn-add" onclick="addToCart('La Royale Ivoire', 45000, this)">Ajouter au panier</button>
+                </div>
+                <div class="product-item">
+                    <div class="img-wrapper"><img src="../22.png" alt="La Tendresse Nude"></div>
+                    <h4>La Tendresse Nude</h4>
+                    <p class="desc">Teinte nude apaisante, douceur premium.</p>
+                    <span class="price">35 000 FCFA</span>
+                    <button class="btn-add" onclick="addToCart('La Tendresse Nude', 35000, this)">Ajouter au panier</button>
+                </div>
+                <div class="product-item">
+                    <div class="img-wrapper"><img src="../19.png" alt="L'Éclat Naturel"></div>
+                    <h4>L'Éclat Naturel</h4>
+                    <p class="desc">Matière naturelle, certification bio garantie.</p>
+                    <span class="price">25 000 FCFA</span>
+                    <button class="btn-add" onclick="addToCart('L\'Éclat Naturel', 25000, this)">Ajouter au panier</button>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- NEWSLETTER -->
+        <section class="newsletter">
+            <span class="material-symbols-outlined moon">dark_mode</span>
+            <h2>Accéder aux privilèges</h2>
+            <p>Inscrivez-vous pour recevoir nos conseils de sommeil et nos offres exclusives.</p>
+            <div class="news-form">
+                <input type="email" placeholder="Votre adresse e-mail">
+                <button type="button">S'INSCRIRE</button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="brand">
+                <div class="logo">ZEALIMAN</div>
+                <p>L'excellence au service de votre repos.</p>
+            </div>
+            <div class="links">
+                <h6>EXPLORER</h6>
+                <a href="#">Sustainability</a>
+                <a href="#">Shipping</a>
+                <a href="#">Returns</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="social">
+                <h6>SUIVEZ-NOUS</h6>
+                <div class="icons">
+                    <span class="material-symbols-outlined">public</span>
+                    <span class="material-symbols-outlined">mail</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container flex-bottom">
+                <p>© 2026 ZEALIMAN. ALL RIGHTS RESERVED.</p>
+                <div class="legal"><a href="#">PRIVACY</a><a href="#">TERMS</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ✅ cart.js tout seul ici -->
+<script src="/Mainson-ZEALIMAN/cart.js"></script>
+
+</body>
+</html>

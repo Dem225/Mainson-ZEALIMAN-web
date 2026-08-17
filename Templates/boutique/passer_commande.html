@@ -1,38 +1,38 @@
-
 {% extends 'base.html' %}
 
-{% block title %}Commande{% endblock %}
+{% block title %}Commande | ZEALIMAN{% endblock %}
 
 {% block content %}
-    <h1>PASSER UNE COMMANDE EN TOUTE SÉCURITÉ</h1>
+<section class="products">
+    <div class="section-header">
+        <div class="title-area">
+            <p class="subtitle">DERNIÈRE ÉTAPE</p>
+            <h2>Passer une commande en toute sécurité</h2>
+        </div>
+    </div>
 
-    <table>
-        <thead>
-            <th>produit</th>
-            <th>quantité</th>
-            <th>total</th>
-        </thead>
-        <tbody>
-            {% for item in panier %}
-            <tr>
-                <td>{{ item.produit.nom }}</td>
-                <td>{{ item.quantite }}</td>
-                <td>{{ item.total_prix }}</td>
-            </tr>
-            {% empty %}
-            <tr>
-                <td colspan="3">pas de produit dans le panier</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="product-grid">
+        {% for item in panier %}
+        <div class="product-item">
+            <div class="product-img" style="background-image: url('{{ item.produit.image.url }}'); height:200px;"></div>
+            <h4>{{ item.produit.nom }}</h4>
+            <p class="desc">Quantité : {{ item.quantite }}</p>
+            <p class="price">{{ item.total_prix }} FCFA</p>
+        </div>
+        {% empty %}
+        <p>Pas de produit dans le panier.</p>
+        {% endfor %}
+    </div>
 
-    <h3>Total à payer : {{ panier.get_total }} FCFA</h3>
+    <div style="max-width:500px; margin:60px auto 0; padding-top:30px; border-top:1px solid #eee;">
+        <h3 style="font-weight:300; text-align:center; margin-bottom:30px;">Total à payer : {{ panier.get_total }} FCFA</h3>
 
-    <form method="post">
-        {% csrf_token %}
-        <label>Adresse de livraison :</label>
-        <textarea name="adresse_livraison" required></textarea>
-        <button type="submit">VALIDER LA COMMANDE</button>
-    </form>
+        <form method="post">
+            {% csrf_token %}
+            <label style="display:block; margin-bottom:10px; font-size:0.85rem; letter-spacing:1px; text-transform:uppercase; color:#777;">Adresse de livraison</label>
+            <textarea name="adresse_livraison" required style="width:100%; min-height:100px; padding:15px; border:1px solid #e0e0e0; font-family:'Inter', sans-serif; margin-bottom:20px;"></textarea>
+            <button type="submit" class="btn-dark" style="width:100%;">VALIDER LA COMMANDE</button>
+        </form>
+    </div>
+</section>
 {% endblock %}

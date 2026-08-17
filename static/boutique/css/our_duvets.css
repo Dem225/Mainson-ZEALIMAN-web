@@ -1,0 +1,191 @@
+/* ============================================================
+   OUR-DUVETS.CSS — ZEALIMAN Collections (contenu uniquement)
+   ============================================================ */
+
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+}
+
+.page-header {
+    max-width: 600px;
+    margin-bottom: 50px;
+}
+
+.breadcrumb {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #585f6a;
+    margin-bottom: 15px;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    font-weight: 200;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.page-header .description {
+    color: #585f6a;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+/* --- Filtres --- */
+.filter-bar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 10px 28px;
+    border-radius: 50px;
+    border: 1px solid #e2e8f0;
+    background: transparent;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #1a1a1a;
+    color: #fff;
+    border-color: #1a1a1a;
+}
+
+/* --- Grille produits (confort) --- */
+.product-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+}
+
+.image-container {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: #eee;
+    border-radius: 15px;
+    margin-bottom: 16px;
+    box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.12);
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.08);
+}
+
+.product-info .category {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #585f6a;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+.product-info h3 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.price-row .price {
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.arrow-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid #e2e8f0;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.product-card:hover .arrow-btn {
+    background: #1a1a1a;
+    border-color: #1a1a1a;
+}
+
+.product-card:hover .arrow-btn .material-symbols-outlined {
+    color: #fff;
+}
+
+.btn-add-mobile {
+    display: none;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+    .content { padding: 30px 30px 60px; }
+}
+
+@media (max-width: 768px) {
+    .content { padding: 20px 16px 50px; }
+    .page-header h1 { font-size: 2rem; }
+
+    .filter-bar {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+    .filter-bar::-webkit-scrollbar { display: none; }
+
+    .arrow-btn { display: none; }
+
+    .btn-add-mobile {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-top: 8px;
+        background: #1a1a1a;
+        color: #fff;
+        border: none;
+        font-family: 'Inter', sans-serif;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        cursor: pointer;
+        border-radius: 4px;
+        text-align: center;
+        text-decoration: none;
+    }
+}

@@ -1,29 +1,34 @@
 {% extends 'base.html' %}
 
-{% block title %}Historique des commandes{% endblock %}
+{% block title %}Mes commandes | ZEALIMAN{% endblock %}
 
 {% block content %}
-    <h1>Mes commandes</h1>
-    <table>
-        <thead>
-            <th>Numéro</th>
-            <th>Date</th>
-            <th>Statut</th>
-            <th>Total</th>
-        </thead>
-        <tbody>
-            {% for commande in commandes %}
-            <tr>
-                <td>#{{ commande.id }}</td>
-                <td>{{ commande.date_commande }}</td>
-                <td>{{ commande.get_statut_display }}</td>
-                <td>{{ commande.total }} FCFA</td>
-            </tr>
-            {% empty %}
-            <tr>
-                <td colspan="4">Vous n'avez pas encore passé de commande</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<section class="products">
+    <div class="section-header">
+        <div class="title-area">
+            <p class="subtitle">VOTRE COMPTE</p>
+            <h2>Mes commandes</h2>
+        </div>
+    </div>
+
+    {% if commandes %}
+    <div style="max-width:900px; margin:0 auto;">
+        {% for commande in commandes %}
+        <div class="product-item hover-animate" style="display:flex; justify-content:space-between; align-items:center; padding:25px 30px; border:1px solid #eee; margin-bottom:15px;">
+            <div>
+                <h4 style="margin-bottom:5px;">Commande #{{ commande.id }}</h4>
+                <p class="desc">{{ commande.date_commande|date:"d/m/Y à H:i" }}</p>
+            </div>
+            <div style="text-align:center;">
+                <p class="desc" style="margin-bottom:5px;">Statut</p>
+                <p style="font-weight:600; font-size:0.85rem; text-transform:uppercase; letter-spacing:1px;">{{ commande.get_statut_display }}</p>
+            </div>
+            <p class="price" style="font-size:1.1rem;">{{ commande.total }} FCFA</p>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p style="text-align:center; color:#777;">Vous n'avez pas encore passé de commande.</p>
+    {% endif %}
+</section>
 {% endblock %}

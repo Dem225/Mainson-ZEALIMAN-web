@@ -1,48 +1,45 @@
 {% extends 'base.html' %}
 
-{% block title %}Panier{% endblock %}
+{% block title %}Mon panier | ZEALIMAN{% endblock %}
 
 {% block content %}
-    <h1>HOLLE BIENVENUE SUR MA PAGE PRUDUIT</h1>
-    <table>
-        <thead>
-            <th>produit</th>
-            <th>quantite</th>     
-            <th>prix</th>
-            <th>prix total</th>
-            <th> Modifiers </th>
-            <th> supprimer </th>
+<section class="products">
+    <div class="section-header">
+        <div class="title-area">
+            <p class="subtitle">VOTRE SÉLECTION</p>
+            <h2>Mon panier</h2>
+        </div>
+    </div>
 
-        </thead>
-        <tbody>
-            {% for item in panier  %}
-            <tr>
-                <td>{{item.produit}} </td>
-                <td>{{item.quantite}} </td>
-                <td>{{item.prix}} </td>
-                <td>{{item.total_prix}} </td>
-                <td>
-                    <form method="post" action="{% url 'supprimer_du_panier' slug=item.produit.slug %}">
-                        {% csrf_token %}
-                        <button type="submit">Supprimer</button>
-                    </form>
-                </td>
-                <td>
-                    <form method="post" action="{% url 'modifier_quantite_panier' slug=item.produit.slug %}">
-                        {% csrf_token %}
-                        <input type="number" name="quantite" value="{{item.quantite }}" min="1">
-                        <button type="submit">Modifier</button>
-                    </form>
-                </td>
-            </tr>
-            {%empty%}
-             <tr>
-                <td>  pas de produit dans le panier  </td>
-            </tr>
+    <div class="product-grid">
+        {% for item in panier %}
+        <div class="product-item hover-animate">
+            <div class="product-img" style="background-image: url('{{ item.produit.image.url }}');"></div>
+            <h4>{{ item.produit.nom }}</h4>
+            <p class="desc">Prix unitaire : {{ item.prix }} FCFA</p>
+            <p class="price">{{ item.total_prix }} FCFA</p>
 
+            <form method="post" action="{% url 'modifier_quantite_panier' slug=item.produit.slug %}" style="display:flex; gap:8px; margin-bottom:10px;">
+                {% csrf_token %}
+                <input type="number" name="quantite" value="{{ item.quantite }}" min="1" style="width:60px; padding:8px;">
+                <button type="submit" class="btn-outline" style="flex:1;">Modifier</button>
+            </form>
 
-            {% endfor %}
-        </tbody>
-    </table>
+            <form method="post" action="{% url 'supprimer_du_panier' slug=item.produit.slug %}">
+                {% csrf_token %}
+                <button type="submit" class="btn-outline" style="width:100%;">Supprimer</button>
+            </form>
+        </div>
+        {% empty %}
+        <p>Votre panier est vide.</p>
+        {% endfor %}
+    </div>
 
+    {% if panier %}
+    <div style="text-align:center; margin-top:60px; padding-top:30px; border-top:1px solid #eee;">
+        <h3 style="font-weight:300; margin-bottom:20px;">Total : {{ panier.get_total }} FCFA</h3>
+        <a href="{% url 'passer_commande' %}" class="btn-dark" style="text-decoration:none; display:inline-block;">Passer commande</a>
+    </div>
+    {% endif %}
+</section>
 {% endblock %}

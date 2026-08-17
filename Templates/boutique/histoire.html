@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}L'excellence du sommeil | ZEALIMAN{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'boutique/css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="hero-about">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+        <h1>Le Sanctuaire du Sommeil</h1>
+        <p>Redéfinir le repos à travers l'art de la pureté et du confort absolu.</p>
+    </div>
+</section>
+
+<section class="container section-spacing">
+    <div class="story-grid">
+        <div class="story-text">
+            <span class="eyebrow">NOTRE HISTOIRE</span>
+            <h2>L'essence de ZEALIMAN</h2>
+            <p>ZEALIMAN est né d'une quête simple mais profonde : créer le refuge ultime au sein de votre foyer. Nous pensons que le sommeil n'est pas seulement une nécessité, mais un rituel sacré.</p>
+            <p>Notre philosophie repose sur trois piliers : <strong>Confort, Pureté et Confiance</strong>. Chaque pièce est le fruit d'une sélection rigoureuse.</p>
+        </div>
+        <div class="story-visual">
+            <div class="abstract-pattern"></div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-light section-spacing">
+    <div class="container">
+        <div class="center-title">
+            <span class="eyebrow">VALEURS</span>
+            <h2>Nos Engagements</h2>
+        </div>
+        <div class="cards-grid">
+            <div class="engagement-card">
+                <span class="material-symbols-outlined">cloud</span>
+                <h3>Confort Absolu</h3>
+                <p>Une douceur enveloppante conçue pour soulager les tensions de la journée.</p>
+            </div>
+            <div class="engagement-card">
+                <span class="material-symbols-outlined">verified_user</span>
+                <h3>Pureté Certifiée</h3>
+                <p>Des matériaux naturels, exempts de substances nocives, pour un air respirant.</p>
+            </div>
+            <div class="engagement-card">
+                <span class="material-symbols-outlined">history</span>
+                <h3>Confiance Durable</h3>
+                <p>Une qualité artisanale qui défie le temps, garantissant des années de repos.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="container cta-box">
+        <h2>Commencez votre voyage vers le repos parfait.</h2>
+        <a href="{% url 'confort' %}" class="btn-cta">EXPLORER LA COLLECTION</a>
+    </div>
+</section>
+{% endblock %}

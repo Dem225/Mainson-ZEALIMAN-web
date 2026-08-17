@@ -1,35 +1,80 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Accueil{% endblock %}
+{% block title %}ZEALIMAN | Redécouvrez le plaisir de s'endormir{% endblock %}
 
 {% block content %}
-    <h1>HOLLE BIENVENUE SUR MA PAGE PRUDUIT</h1>
-    <table>
-        <thead>
-            <th>NOM</th>
-            <th>slug</th>     
-            <th>prix</th>
-            <th>image</th>
-            <th>stock</th>
-            <th>disponible</th>
-            <th>detail</th>
-        </thead>
-        <tbody>
-            {% for prd in produit %}
-            <tr>
-                <td>{{ prd.nom }}</td>
-                <td>{{ prd.slug }}</td>
-                <td>{{ prd.prix }}</td>
-                <td><img src="{{ prd.image.url }}" alt="{{ prd.nom }}" width="80"></td>
-                <td>{{ prd.stock }}</td>
-                <td>{{ prd.disponible }}</td>
-                <td><a href="{% url 'detail_produit' slug=prd.slug %}">détail</a></td>
-            </tr>
-            {% empty %}
-            <tr>
-                <td colspan="7">pas de produit pour l'instant</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Redécouvrez le plaisir de s'endormir</h1>
+        <p>Des matières conçues pour offrir une légèreté absolue et un confort parfait toute la nuit.</p>
+        <button class="btn-dark" onclick="window.location.href='#produits'">Explorer la collection</button>
+    </div>
+</section>
+
+<section class="features">
+    <div class="feature-grid">
+        <div class="feature-card light-blue hover-animate">
+            <span class="icon">🌡️</span>
+            <h3>Régulation Thermique</h3>
+            <p>Nos matériaux intelligents s'adaptent à la température de votre corps pour un confort optimal en toute saison.</p>
+            <div class="feature-img-placeholder">
+                <img src="{% static 'boutique/image/13.png' %}" alt="Régulation thermique">
+            </div>
+        </div>
+        <div class="feature-card white hover-animate">
+            <span class="icon">🌿</span>
+            <h3>Hypoallergénique</h3>
+            <p>Traitement naturel contre les acariens pour un sommeil sain et paisible.</p>
+            <div class="feature-img-placeholder">
+                <img src="{% static 'boutique/image/9.png' %}" alt="Hypoallergénique">
+            </div>
+        </div>
+        <div class="feature-card dark-blue hover-animate">
+            <div class="feature-content">
+                <span class="icon">🧺</span>
+                <h3>Entretien Facile</h3>
+                <p>Lavable en machine tout en conservant son gonflant et sa douceur lavage après lavage.</p>
+            </div>
+            <div class="durable-badge">DURABLE & SOFT</div>
+        </div>
+    </div>
+</section>
+
+<section class="products" id="produits">
+    <div class="section-header">
+        <div class="title-area">
+            <p class="subtitle">LA SÉLECTION EXCLUSIVE</p>
+            <h2>Trouvez votre confort idéal</h2>
+        </div>
+    </div>
+    <div class="product-grid">
+    {% for prd in produit %}
+    <div class="product-item hover-animate">
+        <a href="{% url 'detail_produit' slug=prd.slug %}" style="text-decoration:none; color:inherit;">
+            <div class="product-img" style="background-image: url('{{ prd.image.url }}');"></div>
+            <h4>{{ prd.nom }}</h4>
+        </a>
+        <p class="desc">{{ prd.description|truncatewords:10 }}</p>
+        <p class="price">{{ prd.prix }} FCFA</p>
+        <a href="{% url 'detail_produit' slug=prd.slug %}" class="view-all" style="display:block; margin-bottom:10px;">Voir le détail →</a>
+        <a href="{% url 'ajouter_au_panier' slug=prd.slug %}" class="btn-outline" style="display:block; text-align:center; text-decoration:none; color:inherit;">Ajouter au panier</a>
+    </div>
+    {% empty %}
+    <p>Pas de produit pour l'instant.</p>
+    {% endfor %}
+</div>
+</section>
+
+<section class="newsletter">
+    <span class="moon-icon">🌙</span>
+    <h2>Rejoignez le club du sommeil parfait</h2>
+    <p>Inscrivez-vous pour recevoir nos conseils de sommeil et nos offres exclusives.</p>
+    <div class="newsletter-form">
+        <input type="email" placeholder="Votre adresse e-mail">
+        <button type="button">S'INSCRIRE</button>
+    </div>
+</section>
+
 {% endblock %}

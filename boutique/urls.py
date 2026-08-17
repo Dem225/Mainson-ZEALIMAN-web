@@ -11,4 +11,7 @@ urlpatterns = [
    path('passer_commande/', passer_commande, name='passer_commande'),
    path('confirmation_commande/<int:commande_id>/',confirmation_commande, name='confirmation_commande' ) , 
    path('historique_commandes/', historique_commandes, name='historique_commandes'),
+   path('confort/', confort_view, name='confort'),    
+   path('soins/', soins_view, name='soins'),
+   path('histoire/', histoire_view, name='histoire'),
 ]

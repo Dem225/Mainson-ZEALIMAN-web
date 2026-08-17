@@ -1,0 +1,199 @@
+/* ============================================================
+   ABOUT.CSS — contenu uniquement
+   ============================================================ */
+
+.section-spacing {
+    padding: 60px 0;
+}
+
+.eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    font-weight: 700;
+    color: #ccc;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* ============================================================
+   HERO (histoire)
+   ============================================================ */
+.hero-about {
+    height: 70vh;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1920&q=80') center/cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    height: 45vh;
+}
+
+.hero-about .hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-about h1 {
+   
+    font-weight: 200;
+   
+    line-height: 1.1;
+    color: white;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.hero-about p {
+    font-size: 1rem;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+/* ============================================================
+   NOTRE HISTOIRE
+   ============================================================ */
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.story-text h2 {
+    font-size: 2.2rem;
+    font-weight: 300;
+    margin-bottom: 25px;
+}
+
+.story-text p {
+    color: #585f6a;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.abstract-pattern {
+    height: 400px;
+    background: #eee;
+    border-radius: 4px;
+    height: 280px;
+}
+
+/* ============================================================
+   ENGAGEMENTS
+   ============================================================ */
+.bg-light {
+    background: #f8faff;
+}
+
+.center-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.center-title h2 {
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.engagement-card {
+    background: white;
+    padding: 50px 35px;
+    border-radius: 4px;
+    transition: all 0.5s ease;
+    border: 1px solid transparent;
+}
+
+.engagement-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+    border-color: #eee;
+}
+
+.engagement-card > .material-symbols-outlined {
+    font-size: 32px !important;
+    margin-bottom: 20px;
+    display: block;
+    color: #1a1a1a;
+}
+
+.engagement-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.engagement-card p {
+    font-size: 14px;
+    color: #585f6a;
+    font-weight: 300;
+}
+
+/* ============================================================
+   CTA
+   ============================================================ */
+.cta-section {
+    background: #1a1a1a;
+    padding: 90px 0;
+    color: white;
+    text-align: center;
+    padding: 60px 0;
+}
+
+.cta-box h2 {
+    
+    font-weight: 200;
+
+    line-height: 1.2;
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+}
+
+.btn-cta {
+    display: inline-block;
+    padding: 18px 45px;
+    background: white;
+    color: #1a1a1a;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    transition: opacity 0.3s;
+}
+
+.btn-cta:hover {
+    opacity: 0.85;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 767px) {
+    .section-spacing { padding: 50px 0; }
+    .hero-about { height: 55vh; }
+    .hero-about h1 { font-size: 1.8rem; }
+
+    .story-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .cta-box h2 { font-size: 1.6rem; }
+}
