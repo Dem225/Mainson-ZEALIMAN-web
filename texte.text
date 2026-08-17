@@ -1,4 +1,4 @@
-rm -rf local
+vscode_lsp_terminal_prompt_tracker= {}
 python3 -m venv local
 source local/bin/activate
 pip install --upgrade pippip 
