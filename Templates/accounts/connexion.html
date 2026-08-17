@@ -1,21 +1,26 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Connexion | ZEALIMAN{% endblock %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'boutique/css/auth.css' %}">
+{% endblock %}
+
 {% block content %}
-<section class="newsletter">
-    <span class="moon-icon">🌙</span>
+<section class="auth-section">
+    <span class="auth-icon">🌙</span>
     <h2>Connexion</h2>
     <p>Accédez à votre compte pour suivre vos commandes.</p>
 
-    <form method="post" style="max-width:400px; margin:40px auto 0; text-align:left;">
+    <form method="post" class="auth-form">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn-dark" style="width:100%; margin-top:15px;">Se connecter</button>
+        <button type="submit" class="auth-submit">Se connecter</button>
     </form>
 
-    <p style="margin-top:25px; font-size:0.85rem; color:#777;">
-        Pas encore de compte ? <a href="{% url 'inscription' %}" style="color:#1a1a1a; font-weight:600;">Inscrivez-vous</a>
+    <p class="auth-switch">
+        Pas encore de compte ? <a href="{% url 'inscription' %}">Inscrivez-vous</a>
     </p>
 </section>
 {% endblock %}
